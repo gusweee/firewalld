@@ -1,0 +1,30 @@
+#  install firewalld
+sudo yum install firewalld
+
+# Enabled firewalld setelah install
+sudo systemctl enable firewalld
+
+# Start service firewalld
+sudo systemctl start firewalld
+
+# Cek status firewalld setelah di start
+sudo systemctl status firewalld atau firewall-cmd --state
+
+# Cek default zone
+sudo firewall-cmd --get-default-zone
+
+# Cek zone yang aktif
+sudo firewall-cmd --get-active-zones
+
+# Menambahkan port untuk di open
+sudo firewall-cmd --zone=public --permanent --add-port=8288/tcp
+
+# Restart Services firewalld
+sudo firewall-cmd --reload
+sudo systemctl restart firewalld
+
+# Cek hasil konfigurasi port yang ditambahkan
+sudo firewall-cmd --list-all
+
+# Cek dengan perintah telnet
+telnet x.x.x.x portnya
